@@ -8,16 +8,16 @@ class PopupWindow extends Component {
     constructor(props) {
         super(props);
         this.handleClose = this.handleClose.bind(this);
+        this.popupWindow = React.createRef();
+        this.popupContent = React.createRef();
+        this.popupCloseBtn = React.createRef();
     }
 
     handleClose(event) {
-        const popupWindow = document.getElementsByClassName('PopupWindow');
-        const popupContent = popupWindow.getElementsByClassName('PopupWindow__content');
-        const popupCloseBtn = popupWindow.getElementsByClassName('PopupWindow__close-btn');
         const target = event.target;
         if (
-            (target === popupWindow && target !== popupContent) ||
-            (target === popupCloseBtn)
+            (target === this.popupWindow.current && target !== this.popupContent.current) ||
+            (target === this.popupCloseBtn.current)
         ) {
             this.props.handlePopupClose();
         }
@@ -25,9 +25,9 @@ class PopupWindow extends Component {
 
     render() {
         return (
-            <div className='PopupWindow' onClick={this.handleClose}>
-                <div className='PopupWindow__content'>
-                    <Close className='PopupWindow__close-btn' onClick={this.handleClose}/>
+            <div className='PopupWindow' onClick={this.handleClose} ref={this.popupWindow}>
+                <div className='PopupWindow__content' ref={this.popupContent}>
+                    <Close className='PopupWindow__close-btn' onClick={this.handleClose} ref={this.popupCloseBtn}/>
                     <div className='PopupWindow__block_left'>
                         <img 
                             className='PopupWindow__pic'
