@@ -8,7 +8,7 @@ class CommentList extends Component {
             return (
                 <Comment 
                     key={comment.id}
-                    date='18.12.2019'
+                    date={comment.date}
                     text={comment.text}
                 />
             )
