@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Header from './components/Header/Header';
+import MainContent from './components/MainContent/MainContent';
+import Footer from './components/Footer/Footer';
+import PopupWindow from './components/PopupWindow/PopupWindow';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+	constructor() {
+		super();
+		this.state = {
+			popupIsOpen: false,
+		};
+		this.handlePopupOpen = this.handlePopupOpen.bind(this);
+		this.handlePopupClose = this.handlePopupClose.bind(this);
+	}
+
+	handlePopupOpen(data) {
+		this.setState({
+			popupIsOpen: true,
+			data,
+		});
+	}
+
+	handlePopupClose() {
+		this.setState({
+			popupIsOpen: false,
+		});
+	}
+
+	render() {
+		let popup = this.state.popupIsOpen ?
+			<PopupWindow
+				picture={this.state.data}
+				handlePopupClose={this.handlePopupClose}
+			/> :
+			null;
+		return (
+			<div>
+				<Header />
+				<MainContent handlePopupOpen={this.handlePopupOpen} />
+				<Footer />
+				{popup}
+			</div>
+		);
+	}
 }
 
 export default App;
