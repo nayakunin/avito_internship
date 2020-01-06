@@ -1,9 +1,9 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './PictureContainer.css';
 import Picture from '../Picture/Picture';
 
 function PictureContainer(props) {
-    const [content, setCount] = useState([]);
+    const [content, setContent] = useState([]);
 
     useEffect(() => {
         fetch('https://boiling-refuge-66454.herokuapp.com/images')
@@ -18,7 +18,7 @@ function PictureContainer(props) {
                     />
                 )
             }))
-            .then((result) => setCount(result))
+            .then((result) => setContent(result))
             .catch((err) => console.log(err));
     })
 
