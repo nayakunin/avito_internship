@@ -1,5 +1,9 @@
 .Comment {
+    margin-top: 20px;
+}
 
+.Comment:first-of-type {
+    margin-top: 0;
 }
 
 .Comment__date {
