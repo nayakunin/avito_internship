@@ -18,7 +18,8 @@ class Picture extends Component {
 
     render() {
         return (
-            <img 
+            <img
+                className='Picture'
                 onClick={this.handleClick} 
                 src={this.props.url} 
                 alt={`with id:${this.props.id}`}
