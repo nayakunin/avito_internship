@@ -1,0 +1,28 @@
+.Footer {
+    margin-top: 30px;
+    position: relative;
+    height: 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Footer::before {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    content: '';
+    width: calc(100vw - 40px);
+    border: 1px solid #CCCCCC;
+}
+
+.Footer__text {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #CCCCCC;
+}
