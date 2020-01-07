@@ -20,7 +20,7 @@ function PictureContainer(props) {
             }))
             .then((result) => setContent(result))
             .catch((err) => console.log(err));
-    }, [])
+    }, [props.handlePopupOpen])
 
     return (
         <div className='PictureContainer'>{content}</div>
