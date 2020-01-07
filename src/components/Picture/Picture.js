@@ -2,6 +2,8 @@ import React from 'react';
 import './Picture.css';
 
 function Picture(props) {
+    const image = React.createRef();
+
     const handleClick = (event) => {
         fetch(`https://boiling-refuge-66454.herokuapp.com/images/${props.id}`)
             .then((result) => result.json())
@@ -16,6 +18,8 @@ function Picture(props) {
             onClick={handleClick}
             src={props.url}
             alt={`with id:${props.id}`}
+            onLoad={() => {image.current.classList.add('Picture_loaded')}}
+            ref={image}
         />
     );
 }

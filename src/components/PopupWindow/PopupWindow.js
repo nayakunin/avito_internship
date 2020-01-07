@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {useState, useEffect} from 'react';
 import './PopupWindow.css';
 import CommentForm from '../CommentForm/CommentForm';
 import CommentList from '../CommentList/CommentList';
@@ -9,6 +9,7 @@ function PopupWindow(props) {
     const popupWindow = React.createRef();
     const popupContent = React.createRef();
     const popupCloseBtn = React.createRef();
+    const image = React.createRef();
 
     const handleClose = (event) => {
         const target = event.target;
@@ -20,6 +21,10 @@ function PopupWindow(props) {
         }
     }
 
+    // (function() {
+    //     getComputedStyle(image.current).width.slice(0, -2) / 1.5
+    // })();
+
     return (
         <div className='PopupWindow' onClick={handleClose} ref={popupWindow}>
             <div className='PopupWindow__content' ref={popupContent}>
@@ -28,6 +33,7 @@ function PopupWindow(props) {
                     className='PopupWindow__pic'
                     src={props.picture.url}
                     alt={`with id:${props.picture.id}`}
+                    ref={image}
                 />
                 <div className="PopupWindow__CommentList">
                     <CommentList data={props.picture.comments} />

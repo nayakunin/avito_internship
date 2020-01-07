@@ -31,8 +31,15 @@
 }
 
 .PopupWindow__pic {
-    grid-area: pic;
+    background-color: #f1f1f1;
+    display: block;
     width: 100%;
+    height: calc(100vw * 0.39 / 1.5);
+    grid-area: pic;
+}
+
+.PopupWindow__pic_loaded {
+    padding-top: 0;
 }
 
 .PopupWindow__CommentList {

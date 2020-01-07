@@ -6,14 +6,24 @@
     justify-content: center;
 }
 
+.PictureContainer .Picture {
+    height: calc(229px / 1.5);
+}
+
 @media only screen and (max-width: 767px) {
     .PictureContainer {
         grid-template-columns: 1fr 1fr;
+    }
+    .PictureContainer .Picture {
+        height: calc((100vw - 40px) / 2 / 1.5);
     }
 }
 
 @media only screen and (max-width: 425px) {
     .PictureContainer {
         grid-template-columns: 1fr;
+    }
+    .PictureContainer .Picture {
+        height: calc((100vw - 40px) / 1.5);
     }
 }
