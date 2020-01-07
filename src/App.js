@@ -7,9 +7,17 @@ import PopupWindow from './components/PopupWindow/PopupWindow';
 
 function App() {
     const [popupIsOpen, setPopupIsOpen] = useState(false);
-    const [scrollY, setScrollY] = useState();
     const [data, setData] = useState();
     const [popup, setPopup] = useState(null);
+
+    const handlePopupOpen = (content, scrollPos) => {
+        setData(content);
+        setPopupIsOpen(true);
+    }
+
+    const handlePopupClose = () => {
+        setPopupIsOpen(false);
+    }
 
     useEffect(() => {
         if (popupIsOpen) {
@@ -19,32 +27,15 @@ function App() {
                     handlePopupClose={handlePopupClose}
                 />
             );
-
-            document.body.style.position = 'fixed';
-            document.body.style.top = `-${scrollY}px`;
         } else {
-            const body = document.body;
-            body.style.position = '';
-            body.style.top = '';
-            window.scrollTo(0, scrollY * -1);
             setPopup(null);
         }
-    }, [popupIsOpen])
-
-    const handlePopupOpen = (content, scrollPos) => {
-        setScrollY(scrollPos);
-        setData(content);
-        setPopupIsOpen(true);
-    }
-
-    const handlePopupClose = () => {
-        setPopupIsOpen(false);
-    }
+    }, [popupIsOpen, data])
 
     return (
         <div>
             <Header />
-            <MainContent handlePopupOpen={handlePopupOpen} />
+            <MainContent handlePopupOpen={handlePopupOpen}/>
             <Footer />
             {popup}
         </div>
