@@ -33,7 +33,7 @@ function PopupWindow(props) {
                     <CommentList data={props.picture.comments} />
                 </div>
                 <div className="PopupWindow__CommentForm">
-                    <CommentForm />
+                    <CommentForm imageId={props.picture.id}/>
                 </div>
             </div>
         </div>
