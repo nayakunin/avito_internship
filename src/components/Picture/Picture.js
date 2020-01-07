@@ -6,7 +6,7 @@ function Picture(props) {
         fetch(`https://boiling-refuge-66454.herokuapp.com/images/${props.id}`)
             .then((result) => result.json())
             .then((data) => {
-                props.handlePopupOpen(data, window.scrollY);
+                props.handlePopupOpen(data);
             })
     }
 
