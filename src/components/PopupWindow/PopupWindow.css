@@ -38,10 +38,6 @@
     grid-area: pic;
 }
 
-.PopupWindow__pic_loaded {
-    padding-top: 0;
-}
-
 .PopupWindow__CommentList {
     grid-area: comments;
 }
@@ -67,5 +63,8 @@
     }
     .PopupWindow__CommentList {
         padding: 25px 20px 0 20px;
+    }
+    .PopupWindow__pic {
+        height: calc(100vw / 1.5);
     }
 }
