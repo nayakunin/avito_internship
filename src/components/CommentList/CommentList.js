@@ -14,6 +14,51 @@ function CommentList(props) {
                     />
                 )
             })}
+            <Comment
+                key='1'
+                date={1578054737927}
+                text='текст'
+            />
+            <Comment
+                key='2'
+                date={1578054737927}
+                text='текст'
+            />
+            <Comment
+                key='3'
+                date={1578054737927}
+                text='текст'
+            />
+            <Comment
+                key='4'
+                date={1578054737927}
+                text='текст'
+            />
+            <Comment
+                key='5'
+                date={1578054737927}
+                text='текст'
+            />
+            <Comment
+                key='6'
+                date={1578054737927}
+                text='текст'
+            />
+            <Comment
+                key='7'
+                date={1578054737927}
+                text='текст'
+            />
+            <Comment
+                key='8'
+                date={1578054737927}
+                text='текст'
+            />
+            <Comment
+                key='9'
+                date={1578054737927}
+                text='текст'
+            />
         </div>
     );
 }

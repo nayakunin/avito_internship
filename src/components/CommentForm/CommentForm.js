@@ -18,6 +18,10 @@ function CommentForm(props) {
             },
         })
         .then((response) => console.log(response))
+        .then(() => {
+            setName('');
+            setComment('');
+        })
     }
 
     return (

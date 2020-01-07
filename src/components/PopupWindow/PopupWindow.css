@@ -12,7 +12,7 @@
 
 .PopupWindow__content {
     position: relative;
-    width: 65%;
+    width: 77%;
     padding: 30px;
     background-color: white;
 
@@ -20,7 +20,7 @@
     grid-template-areas:
         "pic comments"
         "form comments";
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 60% 1fr;
     gap: 15px;
 }
 
@@ -34,12 +34,15 @@
     background-color: #f1f1f1;
     display: block;
     width: 100%;
-    height: calc(100vw * 0.39 / 1.5);
+    /* 0.462 = 77% * 60% (ширина модального окна и ширина первого столбца грида) */
+    height: calc(100vw * 0.462 / 1.5);
     grid-area: pic;
 }
 
 .PopupWindow__CommentList {
     grid-area: comments;
+    max-height: calc((65vw + 60px) * 0.566);
+    overflow-y: scroll;
 }
 
 .PopupWindow__CommentForm {
@@ -62,7 +65,8 @@
         background-color: #fff;
     }
     .PopupWindow__CommentList {
-        padding: 25px 20px 0 20px;
+        margin-top: 25px;
+        padding: 0px 20px 0 20px;
     }
     .PopupWindow__pic {
         height: calc(100vw / 1.5);
