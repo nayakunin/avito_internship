@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './PopupWindow.css';
 import CommentForm from '../CommentForm/CommentForm';
 import CommentList from '../CommentList/CommentList';
@@ -9,8 +9,6 @@ function PopupWindow(props) {
     const popupContent = React.createRef();
     const popupCloseBtn = React.createRef();
     const commentListRef = React.createRef();
-    
-    const [scrollPos, setScrollPos] = useState();
 
     const handleClose = (event) => {
         const target = event.target;
@@ -32,7 +30,7 @@ function PopupWindow(props) {
                     alt={`with id:${props.picture.id}`}
                 />
                 <div className="PopupWindow__CommentList" ref={commentListRef}>
-                    <CommentList data={props.picture.comments} setScrollPos={setScrollPos} />
+                    <CommentList data={props.picture.comments}/>
                 </div>
                 <div className="PopupWindow__CommentForm">
                     <CommentForm imageId={props.picture.id} />

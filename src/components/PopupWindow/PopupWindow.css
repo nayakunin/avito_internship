@@ -41,7 +41,7 @@
 
 .PopupWindow__CommentList {
     grid-area: comments;
-    max-height: calc((65vw + 60px) * 0.566);
+    max-height: calc(145px + (100vw * 0.462 / 1.5));
     overflow-y: scroll;
 }
 
@@ -65,8 +65,9 @@
         background-color: #fff;
     }
     .PopupWindow__CommentList {
-        margin-top: 25px;
-        padding: 0px 20px 0 20px;
+        max-height: calc(100vh - (100vw / 1.5) - 195px - 10px);
+        margin-top: 15px;
+        padding: 10px 20px 0 20px;
     }
     .PopupWindow__pic {
         height: calc(100vw / 1.5);
